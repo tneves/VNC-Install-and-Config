@@ -1,3 +1,6 @@
+# Habilitando a execução de scripts
+# Set-ExecutionPolicy Unrestricted -Force
+
 # Desabilitar o Firewall
 # netsh advfirewall set allprofiles state off
 
