@@ -20,7 +20,7 @@ $directories = Get-ChildItem -Path 'C:\Program Files'
 foreach ($directory in $directories) { 
     if ($directory.Name | Select-String -Pattern "vnc") {
         $vncdir = 'C:\Program Files' + '\' + $directory.Name
-        RemoveItem $vncdir
+        Remove-Item -Recurse -Force $vncdir
     }
 }
 
@@ -28,12 +28,12 @@ $directories = Get-ChildItem -Path 'C:\Program Files (x86)'
 foreach ($directory in $directories) { 
     if ($directory.Name | Select-String -Pattern "vnc") {
         $vncdir = 'C:\Program Files (x86)' + '\' + $directory.Name
-        RemoveItem $vncdir
+        Remove-Item -Recurse -Force $vncdir
     }
 }
 
 # Instala o VNC
-.\UltraVNC_1_2_11_X64_Setup.exe /loadinf=".\InstallConfig"
+.\UltraVNC_1_2_11_X64_Setup.exe /silent /loadinf=".\InstallConfig" | Out-Null
 
 # Configura o VNC
-Copy-Item -force .\ultravnc.ini 'C:\Program Files\UltraVNC'
+Copy-Item -Force .\ultravnc.ini 'C:\Program Files\UltraVNC\'
