@@ -37,3 +37,6 @@ foreach ($directory in $directories) {
 
 # Configura o VNC
 Copy-Item -Force .\ultravnc.ini 'C:\Program Files\UltraVNC\'
+
+# Configura a política de execução de scripts para restrita
+# Set-ExecutionPolicy Restricted -Force
